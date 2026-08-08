@@ -1,6 +1,9 @@
+[phases.setup]
+aptPkgs = ["npm"]
+
 [phases.install]
 cmds = [
-    "composer install --no-dev --optimize-autoloader --no-interaction",
+    "composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs",
     "npm ci",
     "npm run build"
 ]
