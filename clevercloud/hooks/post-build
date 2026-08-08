@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+echo "==> Installation des dépendances PHP..."
+composer install --no-dev --optimize-autoloader --no-interaction
+
+echo "==> Installation des dépendances Node..."
+npm ci
+
+echo "==> Build des assets..."
+npm run build

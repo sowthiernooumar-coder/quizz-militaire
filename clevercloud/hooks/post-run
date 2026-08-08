@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+echo "==> Génération APP_KEY..."
+php artisan key:generate --force --no-interaction
+
+echo "==> Cache de configuration..."
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+echo "==> Migrations..."
+php artisan migrate --force --no-interaction
+
+echo "==> Seeders..."
+php artisan db:seed --force --no-interaction || echo "Seeders déjà appliqués."
+
+echo "==> Lien storage..."
+php artisan storage:link --force || true
+
+echo "==> Déploiement terminé ✅"

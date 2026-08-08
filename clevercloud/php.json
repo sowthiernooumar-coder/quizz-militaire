@@ -1,0 +1,9 @@
+{
+  "deploy": {
+    "webroot": "/public"
+  },
+  "configuration": {
+    "runner": "php",
+    "php-version": "8.2"
+  }
+}
